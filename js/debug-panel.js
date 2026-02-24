@@ -94,11 +94,11 @@ const DebugPanel = (() => {
     const newMode = currentMode === 'flush' ? 'reset' : 'flush';
     localStorage.setItem('petshield_mode', newMode);
 
-    // Reload fresh
+    // Reload fresh — preserve base path for GitHub Pages
     const url = new URL(window.location.href);
     url.searchParams.set('mode', newMode);
-    // Go to homepage
-    url.pathname = '/';
+    // Go to homepage (use BASE_PATH instead of hardcoded '/')
+    url.pathname = typeof BASE_PATH !== 'undefined' ? BASE_PATH : '/';
     window.location.href = url.toString();
   }
 
