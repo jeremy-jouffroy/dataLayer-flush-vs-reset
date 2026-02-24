@@ -1307,4 +1307,60 @@ img {
     box-shadow: var(--shadow-md);
   }
   .nav-links.open { display: flex; }
+
+  /* Hide anchor nav on small screens */
+  .anchor-nav { display: none !important; }
+}
+
+/* ─── Floating Anchor Navigation ─── */
+.anchor-nav {
+  position: fixed;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 900;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--light-gray);
+  padding: 8px 0;
+  transition: opacity 0.3s ease;
+}
+
+.anchor-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.anchor-nav li {
+  margin: 0;
+}
+
+.anchor-nav .anchor-link {
+  display: block;
+  padding: 10px 16px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-light);
+  text-decoration: none;
+  white-space: nowrap;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.anchor-nav .anchor-link:hover {
+  color: var(--primary);
+  background: var(--accent-light);
+  border-left-color: var(--accent);
+}
+
+.anchor-nav .anchor-link.active {
+  color: var(--primary-dark);
+  background: var(--accent-light);
+  border-left-color: var(--primary);
+  font-weight: 600;
 }

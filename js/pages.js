@@ -10,8 +10,18 @@ const PAGES = {
     tags: undefined,
     funnelPosition: 'TOFU',
     render: () => `
+      <!-- Floating Anchor Nav -->
+      <nav class="anchor-nav" id="anchor-nav">
+        <ul>
+          <li><a href="#hero" class="anchor-link" data-cta="true" data-cta-text="Hero" data-cta-location="anchor_nav" data-cta-destination="#hero" data-cta-type="anchor">🏠 Hero</a></li>
+          <li><a href="#benefits" class="anchor-link" data-cta="true" data-cta-text="Benefits" data-cta-location="anchor_nav" data-cta-destination="#benefits" data-cta-type="anchor">✅ Benefits</a></li>
+          <li><a href="#get-started" class="anchor-link" data-cta="true" data-cta-text="Get Started" data-cta-location="anchor_nav" data-cta-destination="#get-started" data-cta-type="anchor">🚀 Get Started</a></li>
+          <li><a href="#testimonials" class="anchor-link" data-cta="true" data-cta-text="Testimonials" data-cta-location="anchor_nav" data-cta-destination="#testimonials" data-cta-type="anchor">💬 Testimonials</a></li>
+        </ul>
+      </nav>
+
       <!-- Hero -->
-      <section class="hero">
+      <section class="hero" id="hero">
         <div class="hero-inner">
           <h1>Your Pet Deserves the Best Protection</h1>
           <p>PetShield Insurance covers accidents, illnesses, and routine care for dogs and cats. Get peace of mind knowing your furry family member is protected — plans start at just $19/month.</p>
@@ -25,7 +35,7 @@ const PAGES = {
       </section>
 
       <!-- Benefits -->
-      <section class="section">
+      <section class="section" id="benefits">
         <div class="section-inner">
           <div class="section-header">
             <h2>Why Choose PetShield?</h2>
@@ -52,7 +62,7 @@ const PAGES = {
       </section>
 
       <!-- CTA Banner -->
-      <section class="section section-alt">
+      <section class="section section-alt" id="get-started">
         <div class="section-inner text-center">
           <h2>Ready to Protect Your Pet?</h2>
           <p class="mb-3" style="color:var(--text-light);max-width:500px;margin-left:auto;margin-right:auto;">Join over 200,000 pet parents who trust PetShield. Get your personalized quote in under 2 minutes.</p>
@@ -73,7 +83,7 @@ const PAGES = {
       </section>
 
       <!-- Testimonials -->
-      <section class="section">
+      <section class="section" id="testimonials">
         <div class="section-inner">
           <div class="section-header">
             <h2>What Our Customers Say</h2>

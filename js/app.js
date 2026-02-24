@@ -158,6 +158,43 @@ const App = (() => {
 
     // Bind data-link navigation on newly rendered content
     bindNavLinks();
+
+    // Bind anchor links (scroll-to + CTA tracking, no page change)
+    bindAnchorLinks();
+  }
+
+  // ─── Anchor Link Binding ───
+  function bindAnchorLinks() {
+    document.querySelectorAll('.anchor-link').forEach(link => {
+      if (link._boundAnchor) return;
+      link._boundAnchor = true;
+
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        const targetId = href.replace('#', '');
+        const target = document.getElementById(targetId);
+
+        // Track CTA click
+        if (link.dataset.cta === 'true') {
+          DataLayerManager.trackCTAClick(
+            link.dataset.ctaText || link.textContent.trim(),
+            link.dataset.ctaLocation || 'anchor_nav',
+            link.dataset.ctaDestination || href,
+            link.dataset.ctaType || 'anchor'
+          );
+        }
+
+        // Smooth scroll to section
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Update active state
+        document.querySelectorAll('.anchor-link').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
   }
 
   // ─── Event Binding ───
